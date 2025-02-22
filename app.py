@@ -25,7 +25,7 @@ def generatePassword():
         alpahabet += string.punctuation
 
     password = "".join(secrets.choice(alpahabet)for i in range(length))
-    return jsonify({"Password = ": password})
+    return jsonify({"Password": password})
 
 if __name__ == "__main__":
     app.run(debug=True)
