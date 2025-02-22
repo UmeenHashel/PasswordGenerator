@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, jsonify, request
 import secrets
 import string
 
@@ -23,7 +23,9 @@ def generatePassword():
         alpahabet += string.digits
     if specialSymbols == True:
         alpahabet += string.punctuation
+
     password = "".join(secrets.choice(alpahabet)for i in range(length))
+    jsonify({"Password = ": password})
     return password
 
 if __name__ == "__main__":
