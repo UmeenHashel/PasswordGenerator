@@ -1,3 +1,3 @@
 ## Password Geneator
 
-A password generator made with Flas and React
+A password generator made with Flask and React
