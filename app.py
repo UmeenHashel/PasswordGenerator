@@ -12,21 +12,20 @@ def server():
 def generatePassword():
     length = request.args.get('length')
     numbers = request.args.get('numbers')
-    specialSymbols = request.args.get('specialSymbols')
+    symbols = request.args.get('symbols')
 
     length = int(length)
-    numbers = bool(numbers)
-    specialSymbols = bool(specialSymbols)
+    numbers = numbers.lower() == 'true'
+    symbols = symbols.lower() == 'true'
 
     alpahabet = string.ascii_letters
     if numbers == True:
         alpahabet += string.digits
-    if specialSymbols == True:
+    if symbols == True:
         alpahabet += string.punctuation
 
     password = "".join(secrets.choice(alpahabet)for i in range(length))
-    jsonify({"Password = ": password})
-    return password
+    return jsonify({"Password = ": password})
 
 if __name__ == "__main__":
     app.run(debug=True)
