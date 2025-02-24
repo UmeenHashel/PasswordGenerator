@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import secrets
 import string
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def server():
@@ -10,13 +12,10 @@ def server():
 
 @app.route('/generate-password')
 def generatePassword():
-    length = request.args.get('length')
-    numbers = request.args.get('numbers')
-    symbols = request.args.get('symbols')
+    length = int(request.args.get('length', 8))
+    numbers = request.args.get('numbers', 'false').lower() == 'true'
+    symbols = request.args.get('symbols', 'false').lower() == 'true'
 
-    length = int(length)
-    numbers = numbers.lower() == 'true'
-    symbols = symbols.lower() == 'true'
 
     alpahabet = string.ascii_letters
     if numbers == True:
