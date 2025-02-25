@@ -6,10 +6,6 @@ import string
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def server():
-    return "Server is running!"
-
 @app.route('/generate-password')
 def generatePassword():
     length = int(request.args.get('length', 8))
