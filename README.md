@@ -85,9 +85,10 @@ GET /generate-password?length=12&numbers=true&symbols=true&uppercase=true&lowerc
 
 ---
 
-## Deployment
+## Live Demo
 
-Find the project in: https://password-generator-ten-beryl.vercel.app/
+You can access the live version of the app here:
+[Live Demo](https://password-generator-ten-beryl.vercel.app/)
 
 ---
 
