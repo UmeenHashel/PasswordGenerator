@@ -6,6 +6,10 @@ import string
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def home():
+    return "Welcome to the Password Generator Backend!"
+
 @app.route('/generate-password')
 def generatePassword():
     length = int(request.args.get('length', 8))
